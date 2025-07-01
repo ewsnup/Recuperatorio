@@ -29,14 +29,14 @@ def ordenar_promedio(datos:list) -> list:
 #3
 def encontrar_alumno(estudiantes: list, nombre: str) -> int:
     """Busca un alumno y retorna su posición. Si no existe, retorna -1."""
-    posicion = -1  # Valor por defecto (no encontrado)
+    posicion = -1  
     for i in range(len(estudiantes)):
         if estudiantes[i] == nombre:
-            posicion = i  # Actualiza la posición si lo encuentra
-            break  # Termina el bucle para no seguir buscando
-    return posicion  # Un solo return
+            posicion = i 
+            break  
+    return posicion  
 
-def mostrar_calificaciones(estudiantes: list, notas: list, nombre: str) -> None:
+def mostrar_calificaciones(estudiantes: list, notas: list, nombre: str):
     posicion = encontrar_alumno(estudiantes, nombre)
     if posicion != -1:
         print(f"{nombre} -> {notas[posicion]}")
@@ -45,7 +45,7 @@ def mostrar_calificaciones(estudiantes: list, notas: list, nombre: str) -> None:
 
 #4
 
-def buscar_por_calificacion(notas:list, estudiantes:list, materias:list, calificacion:int) -> bool:
+def buscar_por_calificacion(notas:list, estudiantes:list, materias:list, calificacion:int):
     encontrado = False
     for i in range(len(estudiantes)):
         for j in range(len(materias)):
@@ -53,4 +53,7 @@ def buscar_por_calificacion(notas:list, estudiantes:list, materias:list, calific
                 print(f"Nota encontrada: {calificacion}, Estudiante: {estudiantes[i]}, Materia: {materias[j]}")
                 encontrado = True
                 
-    return encontrado
+    if not encontrado:
+        print("No se ha encontrado a ningún estudiante con esta calificación.")
+
+                
